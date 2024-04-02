@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import tw from "twrnc";
 import { EyeIcon, EyeSlashIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
+import Toast from "react-native-toast-message";
 
 const { width, height } = Dimensions.get("window");
 export default function LoginScreen() {
@@ -37,7 +38,7 @@ export default function LoginScreen() {
         </Text>
       </View>
 
-      <View style={tw`border-2 border-neutral-200 rounded-xl w-[90%] p-3`}>
+      <View style={tw` rounded-xl w-[90%] p-3`}>
         <View>
           <Text style={[{ fontFamily: "Poppins-Medium" }]}>Your Email</Text>
           <TextInput
@@ -77,7 +78,7 @@ export default function LoginScreen() {
           </View>
         </View>
         <View style={tw`w-full flex flex-row justify-end mt-1`}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
             <Text
               style={[
                 { fontFamily: "Poppins-Medium" },
@@ -90,6 +91,7 @@ export default function LoginScreen() {
         </View>
         <TouchableOpacity
           style={tw`w-full flex py-3 mt-2 items-center justify-center bg-[#FF555B] rounded-3xl`}
+          onPress={() => navigation.navigate("App")}
         >
           <Text
             style={[
@@ -101,24 +103,74 @@ export default function LoginScreen() {
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={tw`border-2 border-neutral-200 rounded-xl w-90% p-3 mt-2`}>
-        <Text style={[{fontFamily: "Poppins-Medium"}, tw`text-neutral-500 text-center`]}>Or Continue With</Text>
+      <View style={tw` rounded-xl w-90% p-3 mt-2`}>
+        <Text
+          style={[
+            { fontFamily: "Poppins-Medium" },
+            tw`text-neutral-500 text-center`,
+          ]}
+        >
+          Or Continue With
+        </Text>
         <View style={tw`flex flex-row items-center justify-between px-3`}>
-          <TouchableOpacity style={tw`py-2 px-3 flex flex-row items-center gap-2 border-2 border-neutral-200 rounded-3xl`}>
-            <Image style={tw`w-6 h-6`} width={10} height={10} source={require("../assets/images/google.png")}/>
-            <Text style={[{fontFamily: "Poppins-Medium"}, tw`text-neutral-500 text-center`]}>Google</Text>
+          <TouchableOpacity
+            style={tw`py-2 px-3 flex flex-row items-center gap-2 border-2 border-neutral-200 rounded-3xl`}
+          >
+            <Image
+              style={tw`w-6 h-6`}
+              width={10}
+              height={10}
+              source={require("../assets/images/google.png")}
+            />
+            <Text
+              style={[
+                { fontFamily: "Poppins-Medium" },
+                tw`text-neutral-500 text-center`,
+              ]}
+            >
+              Google
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={tw`py-2 px-3 flex flex-row items-center gap-2 border-2 border-neutral-200 rounded-3xl`}>
-            <Image style={tw`w-6 h-6`} width={10} height={10} source={require("../assets/images/facebook.png")}/>
-            <Text style={[{fontFamily: "Poppins-Medium"}, tw`text-neutral-500 text-center`]}>Google</Text>
+          <TouchableOpacity
+            style={tw`py-2 px-3 flex flex-row items-center gap-2 border-2 border-neutral-200 rounded-3xl`}
+          >
+            <Image
+              style={tw`w-6 h-6`}
+              width={10}
+              height={10}
+              source={require("../assets/images/facebook.png")}
+            />
+            <Text
+              style={[
+                { fontFamily: "Poppins-Medium" },
+                tw`text-neutral-500 text-center`,
+              ]}
+            >
+              Google
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={tw`w-full flex flex-row items-center justify-center mt-2`}>
-          <Text style={[{ fontFamily: "Poppins-Medium" }, tw`text-center text-black`]}>Don’t have any account?{" "}</Text>
-          <TouchableOpacity onPress={()=> navigation.navigate("Signup")}>
-            <Text style={[{ fontFamily: "Poppins-Medium" }, tw`text-[#FF555B] ml-1`]}>Sign Up</Text>
+          <Text
+            style={[
+              { fontFamily: "Poppins-Medium" },
+              tw`text-center text-black`,
+            ]}
+          >
+            Don’t have any account?{" "}
+          </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+            <Text
+              style={[
+                { fontFamily: "Poppins-Medium" },
+                tw`text-[#FF555B] ml-1`,
+              ]}
+            >
+              Sign Up
+            </Text>
           </TouchableOpacity>
         </View>
+        <Toast />
       </View>
     </SafeAreaView>
   );
