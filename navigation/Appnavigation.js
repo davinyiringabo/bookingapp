@@ -10,6 +10,9 @@ import VerifyCodeScreen from "../screens/VerifyCodeScreen";
 import ResetPasswordScreen from "../screens/ResetPasswordScreen";
 import HomeScreen from "../screens/HomeScreen";
 import MainNavigator from "./MainScreens";
+import RecentlyBookedScreen from "../screens/RecentlyBookedScreen";
+import NotificationsScreen from "../screens/NotificationScreen";
+import BookmarkScreen from "../screens/BookmarkScreen";
 
 const Stack = createNativeStackNavigator();
 export default function AppNavigation() {
@@ -28,6 +31,9 @@ export default function AppNavigation() {
         <Stack.Screen name="Verify" component={VerifyCodeScreen} />
         <Stack.Screen name="Reset" component={ResetPasswordScreen} />
         <Stack.Screen name="App" component={MainNavigator} />
+        <Stack.Screen name="RecentBooking" component={RecentlyBookedScreen} />
+        <Stack.Screen name="Notifications" component={NotificationsScreen} />
+        <Stack.Screen name="Bookmarks" component={BookmarkScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

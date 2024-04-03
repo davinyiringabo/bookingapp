@@ -8,18 +8,17 @@ import {
 } from "react-native-heroicons/solid";
 
 const { width, height } = Dimensions.get("window");
-export default function Booked({ item }) {
+export default function Booked({ item, open }) {
   return (
     <View
       key={item.id}
       style={[
-        tw` w-full flex flex-row justify-between bg-white rounded-2xl py-2 my-2 px-2`,
+        tw` w-full flex flex-col justify-between bg-white rounded-2xl gap-2 py-2 my-2 px-2`,
       ]}
     >
-      <View style={tw`flex flex-row gap-3`}>
-        <Image source={item.image} style={tw` w-20 h-20 rounded-xl`} />
-        <View style={tw`w-[73%] flex flex-row justify-between`}>
-          <View style={tw`w-[60%] flex flex-col items-center justify-start`}>
+        <Image source={item.image} style={tw`w-full h-[${height * 0.04}] rounded-xl`} />
+        <View style={tw`w-full flex flex-row justify-between`}>
+          <View style={tw`w-[60%] flex flex-col items-start justify-start`}>
             <Text
               style={[
                 { fontFamily: "Poppins-Bold" },
@@ -29,7 +28,7 @@ export default function Booked({ item }) {
               {item.name}
             </Text>
             <View
-              style={tw`flex flex-row items-center gap-2 mt-[-0.4rem] ml-[-3.5rem]`}
+              style={tw`flex flex-row items-center justify-start  gap-2 mt-[-0.4rem] ml-1`}
             >
               <MapPinIcon size={14} color={"#CCC"} />
               <Text
@@ -42,7 +41,7 @@ export default function Booked({ item }) {
               </Text>
             </View>
             <View
-              style={tw`flex flex-row items-center justify-start gap-1 mt-1 ml-[-3rem]`}
+              style={tw`flex flex-row items-center justify-start gap-1 mt-1 ml-1`}
             >
               <Text
                 style={[
@@ -62,7 +61,7 @@ export default function Booked({ item }) {
               </Text>
             </View>
           </View>
-          <View style={tw`flex flex-col items-end justify-start pr-4`}>
+          <View>
             <TouchableOpacity
               style={tw` rounded-full py-1 px-3 flex flex-row items-center gap-2`}
             >
@@ -76,14 +75,22 @@ export default function Booked({ item }) {
                 {item.rating}
               </Text>
             </TouchableOpacity>
+            <Text
+              style={[
+                { fontFamily: "Poppins-Medium" },
+                tw`text-neutral-500 text-[0.61rem] mt-[-0.7rem]`,
+              ]}
+            >
+              ({"4,579"} reviews)
+            </Text>
             <TouchableOpacity
+                onPress={open}
               style={tw` rounded-xl py-2 px-3 flex flex-row items-end justify-end gap-2`}
             >
               <BookmarkIcon size={25} color={"red"} />
             </TouchableOpacity>
           </View>
         </View>
-      </View>
     </View>
   );
 }

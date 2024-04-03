@@ -24,36 +24,3 @@ export default function OnboardingScreen() {
 
   return <Onboarding />;
 }
-
-// <Onboarding
-//   pages={[
-//     {
-//       backgroundColor: '#051B26',
-//       image: <Image source={require('../assets/images/onb1.png')} />,
-//       title: 'Explore the Unseen World',
-//       subtitle: 'Discover the world with us',
-//     },
-//     {
-//       backgroundColor: '#051B26',
-//       image: <Image source={require('../assets/images/onb2.png')} />,
-//       title: 'Travel Comfortably and Easily',
-//       subtitle: 'Travel made easy in your hand',
-//     },
-//     {
-//       backgroundColor: '#051B26',
-//       image: <Image source={require('../assets/images/onb3.png')} />,
-//       title: 'Find the Best Hotels for Your Vacation',
-//       subtitle: 'Enjoy the best vacation with us',
-//     },
-//   ]}
-//   nextLabel=""
-//   showNext={true}
-//   showSkip={false}
-//   NextButtonComponent={({ onPress }) => (
-//     <View
-//       style={tw`w-[3rem] h-[3rem] p-1 flex-1 items-center justify-center rounded-full bg-[#F83B42]`}
-//     >
-//       <HeartIcon size={20} color="white" onPress={onPress} />
-//     </View>
-//   )}
-// />
