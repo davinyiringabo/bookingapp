@@ -14,11 +14,14 @@ export default function MainNavigator() {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: "#e91e63",
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
             padding: 5,
             height: 80,
             paddingVertical: 20,
-            paddingBottom: 15          
+            paddingBottom: 15,
+            borderTopRightRadius: 15,
+            borderTopLeftRadius: 15 ,
         },
         headerShown: false
       }}

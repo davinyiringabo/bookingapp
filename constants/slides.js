@@ -27,3 +27,42 @@ export const slides = [
     subtitle: "Enjoy the best vacation with us",
   },
 ];
+
+export const hotelSlides = [
+  {
+    id: 1,
+    image: require("../assets/images/onb1.png"),
+    name:"Emeralda Hotel",
+    location:"Paris, France",
+    rating:"4.9",
+    price: "$30",
+    bookmarked: false,
+  },
+  {
+    id: 2,
+    image: require("../assets/images/onb1.png"),
+    name:"Emeralda Hotel",
+    location:"Paris, France",
+    rating:"4.9",
+    price: "$30",
+    bookmarked: false,
+  },
+  {
+    id: 3,
+    image: require("../assets/images/onb1.png"),
+    name:"Emeralda Hotel",
+    location:"Paris, France",
+    rating:"4.9",
+    price: "$30",
+    bookmarked: false,
+  },
+  {
+    id: 4,
+    image: require("../assets/images/onb1.png"),
+    name:"Emeralda Hotel",
+    location:"Paris, France",
+    rating:"4.9",
+    price: "$30",
+    bookmarked: false,
+  },
+]
