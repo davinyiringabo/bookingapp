@@ -18,10 +18,10 @@ import { hotelSlides } from "../constants/slides";
 import Booked from "../components/Booked";
 
 const { width, height } = Dimensions.get("window");
-export default function RecentlyBookedScreen() {
+export default function NotificationSettingsScreen() {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={[{ width }, tw`bg-white pt-10 pb-8`]}>
+    <SafeAreaView style={[{ width }, tw` pt-10 pb-8`]}>
       <View
         style={[
           { width },
@@ -38,28 +38,21 @@ export default function RecentlyBookedScreen() {
               tw`text-xl text-neutral-700`,
             ]}
           >
-            Recently Booked
+            Notifications
           </Text>
         </View>
-        <View style={tw`flex flex-row gap-4`}>
-          <TouchableOpacity style={tw``}>
-            <DocumentTextIcon size={27} color={"red"} style={tw`font-bold`} />
-          </TouchableOpacity>
-          <TouchableOpacity style={tw``}>
-            <AdjustmentsHorizontalIcon
-              size={27}
-              color={"black"}
-              style={tw`font-bold`}
-            />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={tw``}>
+          <AdjustmentsHorizontalIcon
+            size={27}
+            color={"black"}
+            style={tw`font-bold`}
+          />
+        </TouchableOpacity>
       </View>
       <ScrollView style={tw`w-full mt-4 px-2 pb-8`}>
-        <View style={tw`w-full flex flex-col items-center`}>
-        {hotelSlides.map((slide, index) => {
-          return <Booked item={slide} key={index} />;
-        })}
-        </View>
+        <Text style={[{ fontFamily: "Poppins-Bold" }, tw`text-center`]}>
+          Help Screen
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );

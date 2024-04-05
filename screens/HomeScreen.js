@@ -48,7 +48,7 @@ export default function HomeScreen() {
     { icon: <HomeModernIcon size={30} color={"white"} />, text: "Hotel" },
   ];
   return (
-    <ScrollView style={[{ width, height: height * 2 }, tw`mt-3 px-3`]}>
+    <ScrollView style={[{ width, height: height * 2 }, tw`pt-3 px-3 bg-white`]}>
       <View style={tw`w-full flex flex-row justify-between items-center mt-5`}>
         <View style={tw`flex flex-row gap-2`}>
           <Image
@@ -76,7 +76,7 @@ export default function HomeScreen() {
         </View>
         <TouchableOpacity
           style={tw`p-3 px-5 bg-[#FF555B] rounded-3xl`}
-          onPress={() => navigation.navigate("Bookmarks")}
+          onPress={() => navigation.navigate("Notifications")}
         >
           <BellIcon size={25} color={"white"} />
         </TouchableOpacity>
@@ -91,7 +91,7 @@ export default function HomeScreen() {
           <CategoryIcon icon={item.icon} text={item.text} index={index} />
         )}
       />
-      <HotelsCarousel />
+      <HotelsCarousel navigation={navigation}/>
       <View style={tw`w-full mt-4 pb-8`}>
         <View style={tw`flex flex-row justify-between items-center py-2`}>
           <Text
@@ -116,9 +116,11 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
+        <View style={tw`w-full flex flex-col items-center`}>
         {hotelSlides.slice(0, 3).map((slide, index) => {
-          return <Booked item={slide} key={index} />;
+          return <Booked navigation={navigation} item={slide} key={index} />;
         })}
+        </View>
       </View>
     </ScrollView>
   );

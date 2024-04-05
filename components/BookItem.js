@@ -6,10 +6,9 @@ import {
   MapPinIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
-import { useRoute } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
-export default function Booked({ item, navigation }) {
+export default function BookItem({ item, navigation }) {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("Hotel", item)}
@@ -22,7 +21,7 @@ export default function Booked({ item, navigation }) {
       <View style={tw`flex flex-row gap-3`}>
         <Image source={item.image} style={tw` w-20 h-20 rounded-xl`} />
         <View style={tw`w-[73%] flex flex-row justify-between`}>
-          <View style={tw`w-[60%] flex flex-col items-center justify-start`}>
+          <View style={tw`w-[60%] flex flex-col items-start justify-start`}>
             <Text
               style={[
                 { fontFamily: "Poppins-Bold" },
@@ -31,9 +30,7 @@ export default function Booked({ item, navigation }) {
             >
               {item.name}
             </Text>
-            <View
-              style={tw`flex flex-row items-center gap-2 mt-[-0.4rem] ml-[-3.5rem]`}
-            >
+            <View style={tw`flex flex-row items-center gap-2 mt-[-0.4rem]`}>
               <MapPinIcon size={14} color={"#CCC"} />
               <Text
                 style={[
@@ -45,29 +42,21 @@ export default function Booked({ item, navigation }) {
               </Text>
             </View>
             <View
-              style={tw`flex flex-row items-center justify-start gap-1 mt-1 ml-[-3rem]`}
+              style={tw`flex flex-row items-center py-[0.200rem] px-2 rounded-full ${item.status == "paid" || item.status == "completed" ? "bg-[#DBF8E6]" : "bg-[#FFE8E9]"} gap-1 mt-1`}
             >
               <Text
                 style={[
-                  tw`text-neutral-700 text-lg`,
+                  tw`${item.status == "paid" || item.status == "completed" ? "text-[#59A67A]" : "text-[#FF555B]"} text-[0.7rem]`,
                   { fontFamily: "Poppins-Bold" },
                 ]}
               >
-                {item.price}
-              </Text>
-              <Text
-                style={[
-                  { fontFamily: "Poppins-Medium" },
-                  tw`text-neutral-700 text-[0.71rem]`,
-                ]}
-              >
-                / per night
+                {item.status} {item.status === "cancelled" && " & Refunded"}
               </Text>
             </View>
           </View>
-          <View style={tw`w-[40%] flex flex-col items-end justify-start `}>
+          <View style={tw`w-[40%] flex flex-col items-end justify-start`}>
             <TouchableOpacity
-              style={tw` rounded-full py-1 flex flex-row items-center justify-end gap-2`}
+              style={tw` rounded-full py-1 flex flex-row items-center gap-2`}
             >
               <StarIcon size={14} color={"yellow"} />
               <Text
@@ -78,11 +67,6 @@ export default function Booked({ item, navigation }) {
               >
                 {item.rating}
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={tw` rounded-xl py-2 flex flex-row items-end justify-end gap-2`}
-            >
-              <BookmarkIcon size={25} color={"red"} />
             </TouchableOpacity>
           </View>
         </View>

@@ -15,7 +15,7 @@ import { BookmarkIcon } from "react-native-heroicons/outline";
 
 const { width, height } = Dimensions.get("window");
 
-export default function HotelsCarousel() {
+export default function HotelsCarousel({navigation}) {
   const setAsBookMarked = () => {};
 
   return (
@@ -45,10 +45,12 @@ export default function HotelsCarousel() {
             style={tw`rounded-3xl overflow-hidden shadow-md relative`}
           >
             <>
+              <TouchableOpacity style={tw`w-full h-full`} onPress={()=> navigation.navigate("Hotel", item)}>
               <Image
                 source={item.image}
                 style={tw`h-full w-[100%] rounded-2xl`}
               />
+              </TouchableOpacity>
               <TouchableOpacity
                 style={tw`bg-[#FF555D] absolute right-2 top-2 rounded-full py-1 px-3 flex flex-row items-center gap-2`}
               >
