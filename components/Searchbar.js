@@ -17,10 +17,10 @@ export default function Searchbar() {
         ]}
       />
       <TouchableOpacity style={tw`absolute right-3 top-3`}>
-        <AdjustmentsHorizontalIcon size={26} color={"black"} />
+        <AdjustmentsHorizontalIcon size={26} color={"#ccc"} />
       </TouchableOpacity>
       <TouchableOpacity style={tw`absolute left-3 top-3`}>
-        <MagnifyingGlassIcon size={26} color={"black"} />
+        <MagnifyingGlassIcon size={26} color={"#ccc"} />
       </TouchableOpacity>
     </View>
   );

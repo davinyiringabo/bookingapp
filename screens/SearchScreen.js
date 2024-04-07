@@ -111,6 +111,21 @@ export default function SearchScreen() {
           </Text>
         </TouchableOpacity>
       </ScrollView>
+      <View style={[{width}, tw`flex flex-row justify-between px-2 my-3 items-center`]}>
+        <Text style={[{fontFamily:"Poppins-Bold"}, tw`text-lg`]}>{selected}</Text>
+        <View style={tw`flex flex-row gap-4`}>
+          <TouchableOpacity style={tw``}>
+            <DocumentTextIcon size={27} color={"red"} style={tw`font-bold`} />
+          </TouchableOpacity>
+          <TouchableOpacity style={tw``}>
+            <AdjustmentsHorizontalIcon
+              size={27}
+              color={"black"}
+              style={tw`font-bold`}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
       <ScrollView style={tw`w-full h-[80%] mt-4 px-2 pb-8 `}>
         <View style={tw`w-full flex flex-col items-center`}>
         {filtered.length > 0 ? (

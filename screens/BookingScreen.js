@@ -35,7 +35,7 @@ export default function BookingScreen() {
     }
   }, [selected]);
   return (
-    <SafeAreaView style={[{ width }, tw`bg-white pt-10 pb-8`]}>
+    <SafeAreaView style={[{ width }, tw`bg-white pt-10 pb-14`]}>
       <View
         style={[
           { width },

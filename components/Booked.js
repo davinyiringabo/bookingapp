@@ -6,17 +6,16 @@ import {
   MapPinIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
-import { useRoute } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 export default function Booked({ item, navigation }) {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Hotel", item)}
+      onPress={()=> navigation.navigate("Hotel", item)}
       key={item.id}
       style={[
-        {elevation: 12, shadowColor: "#9F9FA1"},
-        tw` w-[98%] flex flex-row justify-between bg-white rounded-2xl py-2 my-2 px-2`,
+        {elevation: 3},
+        tw` w-[99%] flex flex-row justify-between bg-white rounded-2xl py-2 my-2 px-2`,
       ]}
     >
       <View style={tw`flex flex-row gap-3`}>
@@ -32,7 +31,7 @@ export default function Booked({ item, navigation }) {
               {item.name}
             </Text>
             <View
-              style={tw`flex flex-row items-center gap-2 mt-[-0.4rem] ml-[-3.5rem]`}
+              style={tw`flex flex-row items-center gap-2 mt-[-0.4rem] ml-[-2rem]`}
             >
               <MapPinIcon size={14} color={"#CCC"} />
               <Text
@@ -45,7 +44,7 @@ export default function Booked({ item, navigation }) {
               </Text>
             </View>
             <View
-              style={tw`flex flex-row items-center justify-start gap-1 mt-1 ml-[-3rem]`}
+              style={tw`flex flex-row items-center justify-start gap-1 mt-1 ml-[-1.8rem]`}
             >
               <Text
                 style={[
@@ -65,9 +64,9 @@ export default function Booked({ item, navigation }) {
               </Text>
             </View>
           </View>
-          <View style={tw`w-[40%] flex flex-col items-end justify-start `}>
+          <View style={tw`flex flex-col items-end justify-start pr-4`}>
             <TouchableOpacity
-              style={tw` rounded-full py-1 flex flex-row items-center justify-end gap-2`}
+              style={tw` rounded-full py-1 px-3 flex flex-row items-center gap-2`}
             >
               <StarIcon size={14} color={"yellow"} />
               <Text
@@ -80,7 +79,7 @@ export default function Booked({ item, navigation }) {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={tw` rounded-xl py-2 flex flex-row items-end justify-end gap-2`}
+              style={tw` rounded-xl py-2 px-3 flex flex-row items-end justify-end gap-2`}
             >
               <BookmarkIcon size={25} color={"red"} />
             </TouchableOpacity>
