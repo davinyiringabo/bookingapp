@@ -11,10 +11,10 @@ const { width, height } = Dimensions.get("window");
 export default function BookItem({ item, navigation }) {
   return (
     <TouchableOpacity
-      onPress={()=> navigation.navigate("Hotel", item)}
+      onPress={() => navigation.navigate("Hotel", item)}
       key={item.id}
       style={[
-        {elevation: 3},
+        { elevation: 3 },
         tw` w-[99%] flex flex-row justify-between bg-white rounded-2xl py-2 my-2 px-2`,
       ]}
     >

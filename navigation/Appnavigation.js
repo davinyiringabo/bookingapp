@@ -45,7 +45,10 @@ export default function AppNavigation() {
         />
         <Stack.Screen name="HelpSettings" component={HelpSettingsScreen} />
         <Stack.Screen name="Hotel" component={HotelScreen} />
-        <Stack.Screen name="PaymentSettings" component={PaymentSettingsScreen} />
+        <Stack.Screen
+          name="PaymentSettings"
+          component={PaymentSettingsScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

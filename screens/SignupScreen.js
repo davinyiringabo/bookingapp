@@ -39,7 +39,7 @@ export default function SignupScreen() {
           </Text>
         </View>
 
-        <View style={tw`border-2 border-neutral-200 rounded-xl w-[90%] p-3`}>
+        <View style={tw`rounded-xl w-[90%] p-3`}>
           <View>
             <Text style={[{ fontFamily: "Poppins-Medium" }]}>Your Name</Text>
             <TextInput
@@ -104,7 +104,7 @@ export default function SignupScreen() {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={tw`border-2 border-neutral-200 rounded-xl w-90% p-3 mt-2`}>
+        <View style={tw`rounded-xl w-90% p-3 mt-2`}>
           <Text
             style={[
               { fontFamily: "Poppins-Medium" },

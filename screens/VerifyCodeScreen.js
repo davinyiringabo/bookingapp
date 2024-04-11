@@ -74,7 +74,7 @@ export default function VerifyCodeScreen() {
               maxLength={1}
               style={[
                 { fontFamily: "Poppins-Medium" },
-                tw`border border-neutral-200 p-2 px-4 mt-2 rounded-xl outline outline-green-400 text-3xl flex items-center justify-center`,
+                tw`border border-neutral-200 p-2 px-4 mt-2 rounded-xl text-3xl flex items-center justify-center`,
               ]}
               value={code}
               onChangeText={(text) => handleInputChange(text, index)}

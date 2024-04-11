@@ -24,8 +24,9 @@ import {
   ArrowLeftStartOnRectangleIcon,
 } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
-import { hotelSlides } from "../constants/slides";
 import Booked from "../components/Booked";
+import Modal from "react-native-modal";
+
 const buttons = [
   {
     icon: <UserIcon size={25} color={"#ccc"} style={tw`font-bold`} />,
@@ -36,11 +37,6 @@ const buttons = [
     icon: <BellIcon size={27} color={"#ccc"} style={tw`font-bold`} />,
     text: "Notification",
     to: "NotificationSettings",
-  },
-  {
-    icon: <CreditCardIcon size={27} color={"#ccc"} style={tw`font-bold`} />,
-    text: "Payment",
-    to: "PaymentSettings",
   },
   {
     icon: (
@@ -55,6 +51,13 @@ export default function ProfileScreen() {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   const navigation = useNavigation();
+  const [showModal, setShowModal] = useState(false);
+  const [openedItem, setOpenedItem] = useState({});
+  const openModal = (item) => {
+    console.log(item);
+    setOpenedItem(item);
+    setShowModal(true);
+  };
   return (
     <SafeAreaView style={[{ width }, tw` pt-10 pb-8`]}>
       <View
@@ -157,7 +160,7 @@ export default function ProfileScreen() {
               <Switch onValueChange={toggleSwitch} value={isEnabled} />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> setShowModal(true)}>
             <View
               style={tw`w-full bg-white rounded-2xl flex flex-row items-center justify-start px-4 py-4 gap-2`}
             >
@@ -178,6 +181,55 @@ export default function ProfileScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+      <Modal
+        isVisible={showModal}
+        style={tw`flex-1 items-center justify-center`}
+      >
+        <View
+          style={[
+            { width: width * 0.96 },
+            tw`relative bg-white rounded-3xl flex flex-col items-center px-3 pt-4 pb-3`,
+          ]}
+        >
+          <Text style={[{ fontFamily: "Poppins-Bold" }, tw`text-xl text-[#FF555D]`]}>
+            Log out
+          </Text>
+          <Text style={[{ fontFamily: "Poppins-Bold" }, tw`my-4`]}>
+            Are you sure you want to log out?
+          </Text>
+          <Text
+            style={[tw`w-full border border-neutral-200 h-0`]}
+          ></Text>
+          <View style={tw`w-full flex flex-col justify-center gap-4 mt-3`}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Login")}
+              style={tw`w-full flex py-3 mt-2 items-center justify-center bg-[#FF555B] rounded-3xl`}
+            >
+              <Text
+                style={[
+                  { fontFamily: "Poppins-Medium" },
+                  tw`text-center text-white`,
+                ]}
+              >
+                Yes, Logout
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setShowModal(false)}
+              style={tw`w-full flex py-3 mt-2 items-center justify-center bg-[#FFF] rounded-3xl`}
+            >
+              <Text
+                style={[
+                  { fontFamily: "Poppins-Medium" },
+                  tw`text-center text-black`,
+                ]}
+              >
+                Cancel
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }

@@ -56,9 +56,9 @@ export default function RecentlyBookedScreen() {
       </View>
       <ScrollView style={tw`w-full mt-4 px-2 pb-8`}>
         <View style={tw`w-full flex flex-col items-center`}>
-        {hotelSlides.map((slide, index) => {
-          return <Booked navigation={navigation} item={slide} key={index} />;
-        })}
+          {hotelSlides.map((slide, index) => {
+            return <Booked navigation={navigation} item={slide} key={index} />;
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>

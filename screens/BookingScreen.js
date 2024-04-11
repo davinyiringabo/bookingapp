@@ -111,25 +111,25 @@ export default function BookingScreen() {
       </View>
       <ScrollView style={tw`w-full h-[87%] mt-4 px-2 pb-8 `}>
         <View style={tw`w-full flex flex-col items-center`}>
-        {filtered.length > 0 ? (
-          filtered.map((slide, index) => {
-            return (
-              <BookItem navigation={navigation} item={slide} key={index} />
-            );
-          })
-        ) : (
-          <View
-            style={tw`w-full flex flex-col items-center justify-center mt-4`}
-          >
-            <Image
-              source={require("../assets/images/empty-box.png")}
-              style={tw`w-30 h-30`}
-            />
-            <Text style={[{ fontFamily: "Poppins-Bold" }, tw``]}>
-              No {selected} bookings found!
-            </Text>
-          </View>
-        )}
+          {filtered.length > 0 ? (
+            filtered.map((slide, index) => {
+              return (
+                <BookItem navigation={navigation} item={slide} key={index} />
+              );
+            })
+          ) : (
+            <View
+              style={tw`w-full flex flex-col items-center justify-center mt-4`}
+            >
+              <Image
+                source={require("../assets/images/empty-box.png")}
+                style={tw`w-30 h-30`}
+              />
+              <Text style={[{ fontFamily: "Poppins-Bold" }, tw``]}>
+                No {selected} bookings found!
+              </Text>
+            </View>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
